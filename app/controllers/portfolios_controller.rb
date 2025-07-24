@@ -24,7 +24,6 @@ def show
 end
 
 def edit
-  @portfolio = Portfolio.find(params[:id])
 end
 
 def update
@@ -38,11 +37,11 @@ def update
 end
 
 def destroy
-  if @portfolio.destroy
-    redirect_to portfolios_path, notice: "Portfolio item was successfully deleted."
-  else
-    redirect_to portfolios_path, alert: "Error deleting portfolio item."
-  end
+   @portfolio.destroy
+   # redirect_to portfolios_path, notice: "Portfolio item was successfully deleted."
+   respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: "Post was removed." }
+   end
 end
 
 private
