@@ -1,10 +1,11 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio, only: [ :edit, :update, :show, :destroy ]
   def index
     @portfolios = Portfolio.all
   end
 
   def new
-    @portfolio = Portfolio.new
+      @portfolio = Portfolio.new
   end
 
   def create
@@ -17,24 +18,22 @@ class PortfoliosController < ApplicationController
             format.html { render :new }
           end
         end
-    # if @portfolio.save
-    #             redirect_to portfolios_path, notice: "Portfolio item was successfully created."
-    # else
-    #   render :new
-    # end
   end
 
 def show
 end
 
-def editing
+def edit
+  @portfolio = Portfolio.find(params[:id])
 end
 
 def update
-  if @portfolio.update(portfolio_params)
-    redirect_to portfolios_path, notice: "Portfolio item was successfully updated."
-  else
-    render :editing
+  respond_to do |format|
+        if @portfolio.update(portfolio_params)
+                    format.html { redirect_to portfolios_path, notice: "The record successfully updated." }
+        else
+          format.html { render :edit }
+        end
   end
 end
 
