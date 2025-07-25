@@ -38,7 +38,6 @@ end
 
 def destroy
    @portfolio.destroy
-   # redirect_to portfolios_path, notice: "Portfolio item was successfully deleted."
    respond_to do |format|
       format.html { redirect_to portfolios_url, notice: "Post was removed." }
    end
