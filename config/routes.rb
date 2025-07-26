@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
-  get "pages/home"
-  get "pages/about"
-  get "pages/contact"
+  # Now  i want that except for show action for rest of all portfolios (plural) actions is accepted but for show action only one portfolio (singular) is accepted for this ->
+
+  resources :portfolios, except: [ :show ]
+
+  get "portfolio/:id", to: "portfolios#show", as: :'portfolio_show'
+
+
+  # get "pages/about"
+  # get "pages/contact"
+
+  get "about-me", to: "pages#about"
+  get "contact", to: "pages#contact"
+
   resources :blogs
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  root to: "pages#home"
 end
