@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_25_131414) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_28_072252) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -18,7 +18,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_25_131414) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "status", default: 0
+    t.integer "topic_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
+    t.index ["topic_id"], name: "index_blogs_on_topic_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -48,4 +50,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_25_131414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "blogs", "topics"
 end
