@@ -1,4 +1,5 @@
 class Portfolio < ApplicationRecord
+  has_many :technologies
   include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
 
@@ -11,7 +12,7 @@ class Portfolio < ApplicationRecord
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
 
 
-  #way to set default in rails using callback -->
+  #way to set default value in rails using callback -->
   after_initialize :set_defaults
 
   def set_defaults
