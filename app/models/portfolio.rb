@@ -1,7 +1,7 @@
 class Portfolio < ApplicationRecord
   validates_presence_of :title, :body, :main_image, :thumb_image
 
-  #custom scope-->
+  #custom scope-->step-1
   def self.angular
     where(subtitle: 'Angular')  
   end
@@ -9,6 +9,22 @@ class Portfolio < ApplicationRecord
   #or-->
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
 
+
+  #way to set default in rails using callback -->
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.main_image ||= "https://placehold.co/300x200"
+    self.thumb_image ||= "https://placehold.co/300x150"
+  end
+
+  # above working is -->
+
+  # if self.main_image == nil && self.thumb_image == nil
+  #   self.main_image = "https://placehold.co/300x200
+  #   self.thumb_image = "https://placehold.co/300x150"
+  #  end 
+  # end
 
   
 end

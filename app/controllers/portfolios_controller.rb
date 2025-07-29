@@ -2,10 +2,21 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [ :edit, :update, :show, :destroy ]
   def index
     @portfolios = Portfolio.all
+    #This is not a best way to do this -->
     # @portfolios = Portfolio.where(subtitle: 'Ruby on Rails')
+
+
+    #This is a best way to do this (custom scope) -->
+    #step-2->
+    #  @portfolios = Portfolio.angular
+    
+    
+    #or-->
     # @portfolios = Portfolio.ruby_on_rails_portfolio_items
   end
 
+  #step-3->
+  #making a specific page on which only angular/ruby on rails portfolios will be shown (good practice) not opening at the index page-->
   def angular
     @angular_portfolios = Portfolio.angular
   end
