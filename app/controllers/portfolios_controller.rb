@@ -23,6 +23,7 @@ class PortfoliosController < ApplicationController
 
   def new
       @portfolio = Portfolio.new
+      #below is for showing all technologies in the form for filling-->
       3.times  {@portfolio.technologies.build}
   end
 

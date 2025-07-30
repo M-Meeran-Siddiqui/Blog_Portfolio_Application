@@ -15,6 +15,7 @@
     <%= f.text_area :body %>
 </div>
 
+<%# below ul is for filling the all technologies at once . and remember this -> :technologies should be same as available inside the portfolio.rb written. %>
 <ul>
     <%= f.fields_for :technologies do |technology_form|%>
     <li>

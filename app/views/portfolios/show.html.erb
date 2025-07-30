@@ -3,6 +3,7 @@
 <em><%= @portfolio.subtitle %></em>
 <p><%= @portfolio.body %></p>
 
+<%# below is for showing the all the technologies what we add at once. %>
 <h2>Technologies Used :</h2>
 <% @portfolio.technologies.each do |t|%>
   <p><%= t.name %></p>
