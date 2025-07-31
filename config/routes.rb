@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: '' , path_names: {sign_in: 'login' , sign_out: 'logout' , sign_up: 'register'}
   # Now  i want that except for show action for rest of all portfolios (plural) actions is accepted but for show action only one portfolio (singular) is accepted for this ->
 
   resources :portfolios, except: [ :show ]
