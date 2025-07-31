@@ -7,7 +7,7 @@ class Portfolio < ApplicationRecord
 
   include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
-#r , m , t etc.
+
   #custom scope-->step-1
   def self.angular
     where(subtitle: 'Angular')  
@@ -37,7 +37,4 @@ class Portfolio < ApplicationRecord
 
   
 end
-
-
-#App making by taking input using Postman and return json. (without view) directory in your existing rails app.
 
