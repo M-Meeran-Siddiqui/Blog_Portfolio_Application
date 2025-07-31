@@ -1,4 +1,4 @@
-<h3>Homepage</h3>
+<h3>Hi, <%= current_user.first_name if current_user %></h3>
 <p>Find me in app/views/pages/home.html.erb</p>
 <h3>Blog Posts: </h3>
 <%= link_to 'Click-here' , blogs_path(@blogs)%>
