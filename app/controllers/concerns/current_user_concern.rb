@@ -1,6 +1,7 @@
 module CurrentUserConcern
   extend ActiveSupport::Concern
 
+  require 'ostruct'  # This line is necessary to use OpenStruct
 def current_user
      super || guest_user
   end
