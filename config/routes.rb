@@ -1,18 +1,25 @@
 Rails.application.routes.draw do
-  get "pages/home"
-  get "pages/about"
-  get "pages/contact"
-  resources :blogs
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, path: '' , path_names: {sign_in: 'login' , sign_out: 'logout' , sign_up: 'register'}
+  # Now  i want that except for show action for rest of all portfolios (plural) actions is accepted but for show action only one portfolio (singular) is accepted for this ->
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  resources :portfolios, except: [ :show ]
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  get 'angular-items' , to: 'portfolios#angular'
+  get "portfolio/:id", to: "portfolios#show", as: :'portfolio_show'
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+
+  # get "pages/about"
+  # get "pages/contact"
+
+  get "about-me", to: "pages#about"
+  get "contact", to: "pages#contact"
+
+  resources :blogs  do
+   member do 
+     get :toggle_status
+   end
+  end
+
+
+  root to: "pages#home"
 end
