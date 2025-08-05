@@ -1,0 +1,12 @@
+/* blog.css */
+
+body {
+  background-color: grey;
+  font-family: Arial, sans-serif;
+}
+
+.blog-title {
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+}
