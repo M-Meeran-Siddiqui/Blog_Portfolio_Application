@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  layout "portfolio"  # This tells Rails to use portfolio.html.erb as layout
   before_action :set_portfolio, only: [ :edit, :update, :show, :destroy ]
   def index
     @portfolios = Portfolio.all
