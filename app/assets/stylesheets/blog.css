@@ -5,8 +5,8 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.blog-title {
-  color: #333;
+.bottom a {
+  color: white;
   text-align: center;
   margin-top: 20px;
 }

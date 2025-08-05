@@ -24,7 +24,6 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
      
-     <%= render "shared/nav" %> <%#  Underscore is not necessary here. %>
 
     <% if current_user.is_a?(User) %>
 
@@ -33,8 +32,11 @@
       <%= link_to "Register" , new_user_registration_path %>
       <%= link_to "Login" , new_user_session_path %>
     <% end %>
+
+
     <%= yield %>
      
+    <%= render "shared/nav", location: 'bottom' %> <%#  Underscore is not necessary here. %>
 
 
     <% if session[:source] %>
