@@ -12,16 +12,7 @@
     </tr>
   </thead>
   <tbody>
-     <% @blogs.each do |blog|%>
-      <tr style="border-bottom: 1px solid black; background-color: #d8d8d8ff;">
-        <td><%= blog.title %> </td>
-        <td><%= blog.body %></td>
-        <td><%= link_to blog.status , toggle_status_blog_path(blog) %></td>
-        <td><%= link_to 'Show' , blog %></td>
-        <td><%= link_to 'Edit' , edit_blog_path(blog)%></td>
-        <td><%= button_to 'Delete Post' , blog , method: :delete, data: {confirm: "Are you sure ?"}%></td>
-      </tr>
-     <%end%>
+     <%= render partial: 'blog2' , locals: { blogs: @blogs } %>
   </tbody>
 </table>
 
