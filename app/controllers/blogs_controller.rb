@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.special_blogs
     # @blogs = Blog.featured_blogs
     @page_title = "My Portfolio Blog"
+    
   end
   
   # GET /blogs/1 or /blogs/1.json
