@@ -57,6 +57,7 @@ def update
 end
 
 def destroy
+  # binding.pry
    @portfolio.destroy
    respond_to do |format|
       format.html { redirect_to portfolios_url, notice: "Post was removed." }
