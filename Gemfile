@@ -65,4 +65,6 @@ end
 
 gem "friendly_id", "~> 5.5.0"
 gem 'devise', '~> 4.9', '>= 4.9.4'
-
+# your-gem-->
+# gem 'portfolio_view_tool' , git: 'https://github.com/M-Meeran-Siddiqui/Portfolio_view_tool'
+gem 'petergate', '~> 3.0', '>= 3.0.1'
