@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
-   layout "blog"  # This tells Rails to use blog.html.erb as layout
   before_action :set_blog, only: %i[ show edit update destroy toggle_status]
+   layout "blog"  # This tells Rails to use blog.html.erb as layout
+  access all: [:show, :index], user: {except: [:destroy, :new , :create , :update , :edit]}, site_admin: :all
 
   # GET /blogs or /blogs.json
   def index

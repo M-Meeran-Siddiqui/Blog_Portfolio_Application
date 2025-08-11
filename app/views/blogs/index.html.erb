@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin)  %>
 <h1>Blogs</h1>
 
 <table style="border: 1px solid black; width: 100%">
