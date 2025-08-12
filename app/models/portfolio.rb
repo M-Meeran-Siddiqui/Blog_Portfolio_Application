@@ -15,7 +15,10 @@ class Portfolio < ApplicationRecord
 
   #or-->
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
-
+   
+  def self.by_position
+    order("position ASC")
+  end
 
   #way to set default value in rails using callback -->
   after_initialize :set_defaults

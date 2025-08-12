@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_11_070650) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_12_051733) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.string "country"
@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_11_070650) do
     t.text "body"
     t.text "main_image"
     t.text "thumb_image"
+    t.integer "position"
   end
 
   create_table "skills", force: :cascade do |t|
