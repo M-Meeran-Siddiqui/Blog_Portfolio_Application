@@ -50,3 +50,12 @@ body {
 }
 
 
+.card-body {
+     color: black;
+     /* width: 30rem; */
+     text-align: left;
+}
+
+.auth-links a{
+    color:  black;
+}
