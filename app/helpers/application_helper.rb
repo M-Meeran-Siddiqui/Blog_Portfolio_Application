@@ -12,7 +12,7 @@ module ApplicationHelper
   # end
 
 
-def login_helper
+def login_helper style = ''
   if current_user.is_a?(GuestUser)
     safe_join(
       [
