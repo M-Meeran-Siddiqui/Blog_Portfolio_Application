@@ -1,14 +1,6 @@
-<%# Remember that current user is only available when a user sign-in %>
-<h3>Hi, <%= current_user.first_name %></h3>
-<p>Find me in app/views/pages/home.html.erb</p>
-<h3>Blog Posts: </h3>
-<%= link_to 'Click-here' , blogs_path(@blogs)%>
-<%= @posts.inspect %>
-<h3>Skills : </h3>
-<p>No routes and Model of this </p>
-<%= @skills.inspect %>
+<h1>Cover your page.</h1>
+<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+<p class="lead" style="color:black">
+  <%= link_to "About me", about_me_path, class: "btn btn-lg btn-secondary fw-bold border-white bg-white" %>
+</p>
 
-<hr>
-
-<%# 
-<%= sample_helper %> 

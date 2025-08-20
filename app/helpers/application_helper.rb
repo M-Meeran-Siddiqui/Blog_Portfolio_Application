@@ -3,13 +3,45 @@ module ApplicationHelper
   #   "<p>My helper </p>".html_safe
   # end
 
-  def login_helper
-   if current_user.is_a?(GuestUser) 
-    (link_to "Register" , new_user_registration_path) + "<br>".html_safe + (link_to "Login" , new_user_session_path) 
-     else 
-      button_to "Logout" , destroy_user_session_path, method: :delete
-     end 
+  # def login_helper
+  #  if current_user.is_a?(GuestUser) 
+  #   (link_to "Register" , new_user_registration_path) + "<br>".html_safe + (link_to "Login" , new_user_session_path) 
+  #    else 
+  #     button_to "Logout" , destroy_user_session_path, method: :delete
+  #    end 
+  # end
+
+
+def login_helper
+  if current_user.is_a?(GuestUser)
+    safe_join(
+      [
+        link_to(
+          "Register",
+          new_user_registration_path,
+          class: "nav-link #{current_page?(new_user_registration_path) ? 'active' : ''}",
+          "aria-current": (current_page?(new_user_registration_path) ? "page" : nil)
+        ),
+        link_to(
+          "Login",
+          new_user_session_path,
+          class: "nav-link #{current_page?(new_user_session_path) ? 'active' : ''}",
+          "aria-current": (current_page?(new_user_session_path) ? "page" : nil)
+        )
+      ],
+      "" # no separator so they render as adjacent nav items
+    )
+  else
+    # Use link_to with method: :delete for consistent styling with other nav links
+    link_to(
+      "Logout",
+      destroy_user_session_path,
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?" },
+      class: "nav-link"
+    )
   end
+end
+
 
   #How can i pass specific data to the view -->
   def source_helper(layout_name)

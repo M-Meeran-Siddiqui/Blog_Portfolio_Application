@@ -2,5 +2,9 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import Rails from "@rails/ujs"
+// Import jQuery
+// import "jquery"
+// Import HTML sortable
+// import "html.sortable"
 Rails.start()
-// import "bootstrap"
+

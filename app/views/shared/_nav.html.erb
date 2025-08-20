@@ -1,7 +1,26 @@
- <div class= "<%= location %>">
-      <div><%= link_to "Home" , root_path %></div>
-      <div><%= link_to "About" , about_me_path %></div>
-      <div><%= link_to "Contact" , contact_path %></div>
-      <div><%= link_to "Blog" , blogs_path %></div>
-      <div><%= link_to "Portfolio" , portfolios_path %></div>
-    </div> 
+ <nav class="nav nav-masthead justify-content-center float-md-end">
+  <%= link_to "Home", root_path,
+        class: "nav-link #{current_page?(root_path) ? 'active' : ''}",
+        "aria-current": (current_page?(root_path) ? "page" : nil) %>
+
+  <%= link_to "About", about_me_path,
+        class: "nav-link #{current_page?(about_me_path) ? 'active' : ''}",
+        "aria-current": (current_page?(about_me_path) ? "page" : nil) %>
+
+  <%= link_to "Contact", contact_path,
+        class: "nav-link #{current_page?(contact_path) ? 'active' : ''}",
+        "aria-current": (current_page?(contact_path) ? "page" : nil) %>
+
+  <%= link_to "Blog", blogs_path,
+        class: "nav-link #{current_page?(blogs_path) ? 'active' : ''}",
+        "aria-current": (current_page?(blogs_path) ? "page" : nil) %>
+
+  <%= link_to "Portfolio", portfolios_path,
+        class: "nav-link #{current_page?(portfolios_path) ? 'active' : ''}",
+        "aria-current": (current_page?(portfolios_path) ? "page" : nil) %>
+
+   <%= login_helper %>
+
+</nav>
+ 
+
