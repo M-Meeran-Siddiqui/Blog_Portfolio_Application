@@ -33,11 +33,14 @@ def login_helper
     )
   else
     # Use link_to with method: :delete for consistent styling with other nav links
-    link_to(
+    
+    button_to(
       "Logout",
       destroy_user_session_path,
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?" },
-      class: "nav-link"
+      method: :delete,
+      form: { class: "d-inline" },
+      class: "btn btn-link nav-link p-0",
+      data: { turbo_confirm: "Are you sure you want to log out?" }
     )
   end
 end
