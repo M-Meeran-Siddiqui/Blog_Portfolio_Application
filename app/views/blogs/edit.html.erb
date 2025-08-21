@@ -1,12 +1,9 @@
-<% content_for :title, "Editing blog" %>
-
+<div class="col-sm-6 blog-main">
 <h1>Editing blog</h1>
-
 <%= render "form", blog: @blog %>
-
 <br>
-
 <div>
   <%= link_to "Show this blog", @blog %> |
   <%= link_to "Back to blogs", blogs_path %>
+</div>
 </div>

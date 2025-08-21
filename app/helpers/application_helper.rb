@@ -4,13 +4,12 @@ module ApplicationHelper
   # end
 
   # def login_helper
-  #  if current_user.is_a?(GuestUser) 
+  #    if current_user.is_a?(GuestUser) 
   #   (link_to "Register" , new_user_registration_path) + "<br>".html_safe + (link_to "Login" , new_user_session_path) 
   #    else 
   #     button_to "Logout" , destroy_user_session_path, method: :delete
   #    end 
   # end
-
 
 def login_helper style = ''
   if current_user.is_a?(GuestUser)
@@ -39,7 +38,7 @@ def login_helper style = ''
       destroy_user_session_path,
       method: :delete,
       form: { class: "d-inline" },
-      class: "btn btn-link nav-link p-0",
+      class: "btn btn-link nav-link p-0 ",
       data: { turbo_confirm: "Are you sure you want to log out?" }
     )
   end
@@ -55,4 +54,7 @@ end
   end
 
 end
+
+
+
 
