@@ -1,11 +1,21 @@
-<%= image_tag @portfolio.main_image%>
-<h1><%= @portfolio.title %></h1>
-<em><%= @portfolio.subtitle %></em>
-<p><%= @portfolio.body %></p>
-
-<%# below is for showing the all the technologies what we add at once. %>
-<h2>Technologies Used :</h2>
-<% @portfolio.technologies.each do |t|%>
+<div class="container">
+      <div class="row">
+        <div class="col-md-7">
+           <%= image_tag @portfolio.main_image%>
+        </div>
+        <div class="col-md-5">
+        <h1><%= @portfolio.title %></h1>
+        <hr>
+        <em><%= @portfolio.subtitle %></em>
+        <p><%= @portfolio.body %></p>
+        <hr>
+   <%# below is for showing the all the technologies what we add at once. %>
+  <h3>Technologies Used :</h3>
+  <% @portfolio.technologies.each do |t|%>
   <p><%= t.name %></p>
-<%end%>
+ <%end%>
+
+        </div>
+      </div>
+</div>
 
