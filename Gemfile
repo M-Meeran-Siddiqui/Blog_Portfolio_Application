@@ -68,3 +68,5 @@ gem 'devise', '~> 4.9', '>= 4.9.4'
 # your-gem-->
 # gem 'portfolio_view_tool' , git: 'https://github.com/M-Meeran-Siddiqui/Portfolio_view_tool'
 gem 'petergate', '~> 3.0', '>= 3.0.1'
+# gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.9'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'

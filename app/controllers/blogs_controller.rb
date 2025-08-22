@@ -8,7 +8,8 @@ class BlogsController < ApplicationController
     # @blogs = Blog.all
     # @blogs = Blog.limit(2)
     # better way of just above -->
-    @blogs = Blog.special_blogs
+    # @blogs = Blog.special_blogs
+    @blogs = Blog.page(params[:page]).per(5)
     # @blogs = Blog.featured_blogs
     @page_title = "My Portfolio Blog"
     

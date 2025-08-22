@@ -1,13 +1,13 @@
   <div class="col-sm-6 blog-main">
            
-            <% @blogs.each do |blog|%>
-            <%= render  'blog' ,  blog: blog  %>
-            <% end %>
+          <%= paginate @blogs %>   
+          
+          <% @blogs.each do |blog|%>
+          <%= render  'blog' ,  blog: blog  %>
+          <% end %>
+          
+          <%= paginate @blogs %> 
 
-          <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="#">Older</a>
-            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-          </nav>
 
         </div>
 
