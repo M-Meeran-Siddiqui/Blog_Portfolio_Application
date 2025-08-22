@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @page_title %> </title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <title><%= @page_title %> </title>
     <%= csrf_meta_tags %>  
     <%= csp_meta_tag %>
-   
+
+
     <%= yield :head %>
 
     <link rel="icon" href="/icon.png" type="image/png">
@@ -20,21 +22,31 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
 
+
+    <meta name="keywords" content="<%= @seo_keywords %>">
+
     <%= stylesheet_link_tag('portfolio') %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+   <%# start of navigation %>
+   <%= render "shared/portfolio_nav" , location: 'top' %>
+   <%# end of navigation %>
 
-    <%= render "shared/nav", location: 'top' %> <%#  Underscore is not necessary here. %>
+   <%# start of masthead %>
+     
+    <%= render "shared/portfolio_masthead" %>
     
-    <%= login_helper %>
-
+   <%# end of masthead %>
+   
+    
+    
     <%= yield %>
     
     <%= source_helper("portfolio") %>
+    
+    <%= render "shared/portfolio_footer" , location: 'bottom' %>
 
   </body>
 </html>
