@@ -18,13 +18,13 @@ def login_helper style = ''
         link_to(
           "Register",
           new_user_registration_path,
-          class: "nav-link #{current_page?(new_user_registration_path) ? 'active' : ''}",
+          class: "nav-link #{current_page?(new_user_registration_path) ? 'active' : ''} text-white px-0",
           "aria-current": (current_page?(new_user_registration_path) ? "page" : nil)
         ),
         link_to(
           "Login",
           new_user_session_path,
-          class: "nav-link #{current_page?(new_user_session_path) ? 'active' : ''}",
+          class: "nav-link #{current_page?(new_user_session_path) ? 'active' : ''} text-white ",
           "aria-current": (current_page?(new_user_session_path) ? "page" : nil)
         )
       ],
@@ -38,9 +38,10 @@ def login_helper style = ''
       destroy_user_session_path,
       method: :delete,
       form: { class: "d-inline" },
-      class: "btn btn-link nav-link p-0 ",
+      class: "btn btn-link nav-link pb-1 text-white",
       data: { turbo_confirm: "Are you sure you want to log out?" }
     )
+
   end
 end
 
