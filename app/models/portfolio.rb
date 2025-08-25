@@ -1,5 +1,6 @@
 class Portfolio < ApplicationRecord
-  has_many :technologies
+  has_many :technologies , dependent: :destroy
+
 
   # just below is for allowing nested attributes for technologies
   accepts_nested_attributes_for :technologies,
