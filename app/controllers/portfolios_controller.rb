@@ -5,7 +5,8 @@ class PortfoliosController < ApplicationController
 
   def index
     # @portfolios = Portfolio.all
-      @portfolios = Portfolio.by_position
+      # @portfolios = Portfolio.by_position
+      @portfolios = Portfolio.order(:position)
     #This is not a best way to do this -->
     # @portfolios = Portfolio.where(subtitle: 'Ruby on Rails')
 
@@ -44,12 +45,15 @@ class PortfoliosController < ApplicationController
   end
 
 def show
+
 end
 
 def edit
+
 end
 
 def update
+
   respond_to do |format|
         if @portfolio.update(portfolio_params)
                     format.html { redirect_to portfolios_path, notice: "The record successfully updated." }
@@ -57,6 +61,7 @@ def update
           format.html { render :edit }
         end
   end
+       
 end
 
 def destroy
@@ -68,6 +73,7 @@ def destroy
 end
 
 private
+  
   def set_portfolio
     @portfolio = Portfolio.find(params[:id])
   end
@@ -75,6 +81,8 @@ private
   def portfolio_params
     params.require(:portfolio).permit(:title, :subtitle, :body , technologies_attributes: [:name]) 
   end
+
 end
+
 
 
